@@ -6,7 +6,11 @@ import router from "./router";
 
 import "./assets/main.css";
 
+import mitt from "mitt";
+
+const emitter = mitt();
 const app = createApp(App);
+app.config.globalProperties.emitter = emitter;
 
 app.use(createPinia());
 app.use(router);
