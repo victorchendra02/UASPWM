@@ -2,7 +2,7 @@
     <!-- <div class="border-2 border-danger"> -->
     <div>
         <!-- InvoiceBody -->
-        <div style="height: 22rem; overflow: auto; text-align: left">
+        <div style="height: 24rem; overflow: auto; text-align: left">
             <ol>
                 <li v-for="(x, index) in this.cart" :key="index">
                     <span class="me-3">{{ x.product_name }}</span>
@@ -16,7 +16,11 @@
                 </li>
             </ol>
         </div>
-        <div class="py-2 text-start ps-3 fw-bold fs-5" >TOTAL: Rp {{ this.total.toLocaleString("id-ID") }}</div>
+        <div class="text-start ps-3 pe-4 fw-bold fs-5">
+            <hr />
+            TOTAL: Rp {{ this.total.toLocaleString("id-ID") }}
+            <hr />
+        </div>
 
         <!-- Commands -->
         <!-- <div class="border-top border-2 border-danger pt-3" style="height: 6rem"> -->
@@ -40,7 +44,7 @@ export default {
     },
     data() {
         return {
-            username: "Jacob",
+            // username: "Jacob",
             cart: [
                 // ex. what will appended
                 // {id_product: 1, category: "Goreng", price: 2000, product_name: "Ayam Goreng", sub_total: qty*price, qty: 1}
@@ -114,10 +118,10 @@ export default {
                 },
             });
         },
-        save_username() {
-            console.log("saved", this.username);
-            localStorage.setItem("username", this.username);
-        },
+        // save_username() {
+        //     console.log("saved", this.username);
+        //     localStorage.setItem("username", this.username);
+        // },
     },
     mounted() {
         this.emitter.on("dari_component_lain", (pd) => {

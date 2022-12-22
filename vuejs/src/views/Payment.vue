@@ -13,14 +13,13 @@
             <br />
             <button class="apalah ms-5 btn btn-primary btn-lg" @click="submitForm()">Pay</button>
         </div>
-        <!-- <div class="pt-1 text-start ps-3 fw-bold fs-5" style="height: 2rem">TOTAL: Rp {{ this.total.toLocaleString("id-ID") }}</div> -->
     </div>
 </template>
 
 <script>
 import axios from "axios";
 
-import NavBar from "@/components/Navbar.vue";
+import NavBar from "@/components/NavBar.vue";
 import InvoiceBody from "@/components/InvoiceBody.vue";
 
 export default {
@@ -38,6 +37,10 @@ export default {
     methods: {
         submitForm() {
             console.log("MASUK SUBMIT");
+            let a = [JSON.parse(window.localStorage.getItem("clerk"))[0].id_clerk]; // this is int type
+
+            this.cart.push(a);
+
             axios
                 .post("http://127.0.0.1:5000/submit", this.cart)
                 .then((response) => {
@@ -46,6 +49,9 @@ export default {
                 .catch((error) => {
                     console.log(error.message);
                 });
+            this.$router.push({
+                path: "/dashboard",
+            });
         },
     },
     mounted() {

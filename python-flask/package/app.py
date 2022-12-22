@@ -64,8 +64,15 @@ def get_last_recorded_id_invoice():
 def entry_payment_to_database():
     data = request.json  # it's a list
 
+    clerk_idnya = data[-1][0]
+    print("SEPP")
+    print()
+    print(clerk_idnya)
+    print()
+    data.pop()
+
     # 1. Create Invoice
-    new_invoice = Invoice(1, date.today())
+    new_invoice = Invoice(clerk_idnya, datetime.now())
     db.session.add(new_invoice)
     db.session.commit()
     
@@ -84,3 +91,28 @@ def entry_payment_to_database():
         new_invoicedetail = InvoiceDetail(last_id_invoice, item["id_product"], item["qty"], item["sub_total"])
         db.session.add(new_invoicedetail)
         db.session.commit()
+    
+    return "AAA"
+
+
+@app.route('/report', methods=['GET'])
+def get_report():
+    sql = text(f"SELECT invoice.id_invoice, clerk.username, invoice.date, SUM(invoice_detail.sub_total) as total \
+               FROM invoice \
+               INNER JOIN clerk ON invoice.id_clerk = clerk.id_clerk \
+               INNER JOIN invoice_detail ON invoice.id_invoice = invoice_detail.id_invoice \
+               GROUP BY invoice.id_invoice ")
+    results = db.engine.execute(sql)
+    
+    collect = []
+    for result in results:
+        collect.append(
+            {
+                "id_invoice": result[0],
+                "username": result[1],
+                "date": result[2],
+                "total": result[3],
+            }
+        )
+    
+    return collect

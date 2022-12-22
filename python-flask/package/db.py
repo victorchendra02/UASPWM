@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import delete, update, Boolean, select
+from sqlalchemy import delete, update, Boolean, select, join, DateTime
 from sqlalchemy import text
 from flask_cors import CORS
-from datetime import date
+from datetime import datetime
 import os
 
 """
@@ -83,7 +83,7 @@ class Invoice(db.Model):
     
     id_invoice = db.Column('id_invoice', db.Integer, primary_key=True, autoincrement=True)
     id_clerk = db.Column(db.Integer, db.ForeignKey('clerk.id_clerk'))
-    date = db.Column(db.Date)
+    date = db.Column(db.DateTime)
     
     # Create relationship
     invoice_detail = db.relationship('InvoiceDetail', backref='invoice')

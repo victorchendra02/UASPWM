@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import NavBar from "@/components/Navbar.vue";
+import NavBar from "@/components/NavBar.vue";
 import CategoryProduct from "@/components/CategoryProduct.vue";
 import AdminCommands from "@/components/AdminCommands.vue";
 
@@ -38,6 +38,18 @@ export default {
         HeaderInvoice,
         InvoiceBody,
         // Commands,
+    },
+    methods: {
+        chek() {
+            if (window.localStorage.getItem("clerk") === null) {
+                this.$router.push({
+                    path: "/",
+                });
+            }
+        },
+    },
+    created() {
+        this.chek();
     },
 };
 </script>
