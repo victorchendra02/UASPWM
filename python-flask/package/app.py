@@ -116,3 +116,25 @@ def get_report():
         )
     
     return collect
+
+
+@app.route('/itulah', methods=['GET'])
+def yaya():
+    sql = text(f"SELECT id_invoice, product_name, quantity, sub_total \
+                 FROM invoice_detail \
+                 JOIN product ON invoice_detail.id_product = product.id_product \
+                 ORDER BY id_invoice ASC")
+    results = db.engine.execute(sql)
+    
+    collect = []
+    for result in results:
+        collect.append(
+            {
+                "id_invoice": result[0],
+                "product_name": result[1],
+                "quantity": result[2],
+                "sub_total": result[3],
+            }
+        )
+    
+    return collect
