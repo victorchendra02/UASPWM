@@ -43,8 +43,8 @@ And `VueJS` is for front-end.
 <br>
 <br>
 
-> ### NOTE: <br>
-Make sure to activate WAMP/XAMP and IMPORT .sql file to your database/PHPMyAdmin
+> ### NOTE:
+> Make sure to activate WAMP/XAMP and IMPORT .sql file to your database/PHPMyAdmin
 
 
 <br>
