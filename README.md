@@ -1,4 +1,38 @@
-How to run this project:
+## Point of Sale Restaurant
+
+![Cover image](coverimage.jpg)
+
+---
+
+### How to run this project:
+
+> To run this project, you need to prepare 2 termninal (cmd). <br>
+> The first one is to activate `FLASK` and <br>
+> the second one is to activate `VueJS`
+
+> Python `FLASK` is for back-end, to connect database. <br>
+> And `VueJS` is for front-end.
+
+1. [First cmd] Activate python virtual environment (venv) and run `FLASK`, simply just copy this code below
+
+```sh
+python-flask\env\Scripts\activate
+cd python-flask\package
+flask run
+```
+
+2. [Second cmd] Run `VueJS`
+
+```sh
+cd vuejs
+npm run dev
+```
+
+### Username to login
+
+1. > username: Victor <br> password: 12345678
+2. > username: Jacob <br> password: 87654321
+3. > username: Filbert <br> password: qwerasdf
 
 ```
 VUE JS
