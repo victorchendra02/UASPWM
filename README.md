@@ -34,11 +34,18 @@ pip install flask-sqlalchemy==2.5.1
 ---
 ## How to run this project:
 > To run this project, you need to prepare 2 termninal (cmd). <br>
-> The first one is to activate `FLASK` and <br>
-> the second one is to activate `VueJS`
+The first one is to activate `FLASK` and <br>
+the second one is to activate `VueJS`
 
 > Python `FLASK` is for back-end, to connect database. <br>
-> And `VueJS` is for front-end.
+And `VueJS` is for front-end.
+
+<br>
+<br>
+
+> ### NOTE:
+Make sure to activate WAMP/XAMP and IMPORT .sql file to your database/PHPMyAdmin
+
 
 <br>
 
@@ -56,6 +63,9 @@ flask run
 cd vuejs
 npm run dev
 ```
+
+3. Finally, open the link on the second cmd. <br>
+The link looks like this: http://localhost:5173/
 <br>
 <br>
 
