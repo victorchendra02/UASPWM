@@ -1,12 +1,12 @@
 # Point of Sale Restaurant
-![Cover image](coverimage.jp)
+![Cover image](coverimage.jpg)
 
 <br>
 <br>
 
 ---
 ## How to initialize (requirement instalation)
-1. Copy this code to your terminal (cmd)
+1. Initialize `VueJS` and other library
 ```sh
 cd vuejs
 npm install
@@ -14,8 +14,10 @@ npm install --save mitt
 npm install --save axios vue-axios
 ```
 
-2.
+2. Initialize python `FLASK` and other library
 ```sh
+python-flask\env\Scripts\activate
+
 pip install flask
 pip install flask-sqlalchemy
 py -m pip install requests
